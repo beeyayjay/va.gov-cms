@@ -496,6 +496,10 @@ class ParagraphMigrator {
     $entity->set($paragraph_field, []);
     $entity->save();
 
+    if (\Drupal::state()->get('va_gov_migrate.leave_paragraphs')) {
+      return;
+    }
+
     if (!empty($paragraph_targets)) {
       $paragraph_ids = [];
       foreach ($paragraph_targets as $paragraph_target) {

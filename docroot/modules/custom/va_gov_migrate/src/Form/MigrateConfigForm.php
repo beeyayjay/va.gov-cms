@@ -28,11 +28,17 @@ class MigrateConfigForm extends FormBase {
       '#title' => 'Create CSV files.',
       '#default_value' => \Drupal::state()->get('va_gov_migrate.create_csv_files'),
     ];
+    $form['leave_paragraphs'] = [
+      '#type' => 'checkbox',
+      '#title' => 'Don\'t delete orphaned paragraphs.',
+      '#default_value' => \Drupal::state()->get('va_gov_migrate.leave_paragraphs'),
+    ];
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Save'),
     ];
+
     return $form;
   }
 
@@ -41,6 +47,7 @@ class MigrateConfigForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     \Drupal::state()->set('va_gov_migrate.create_csv_files', $form_state->getValue('create_csv_files'));
+    \Drupal::state()->set('va_gov_migrate.leave_paragraphs', $form_state->getValue('leave_paragraphs'));
   }
 
 }
