@@ -86,6 +86,7 @@
         "querypath/querypath": "^3.0",
         "simplesamlphp/simplesamlphp": "^1.17",
         "symfony/config": "^3.4",
+        "symfony/finder": "^3",
         "twig/twig": "1.37.1",
         "va-gov/web": "dev-VAGOV-2937-unity",
         "webflo/drupal-finder": "^1.0.0",
